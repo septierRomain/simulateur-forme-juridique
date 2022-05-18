@@ -15,7 +15,7 @@ function Protection(props) {
 
   return (
     <div>
-    <h2>Avez vous beosin d'une protection sociale ?</h2>
+    <h2>Avez vous besoin d'une protection sociale ?</h2>
     <div className="select_container">
 
         <button

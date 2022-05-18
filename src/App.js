@@ -21,24 +21,24 @@ function App() {
     needProtection: false,
     noNeedProtection: false
   })
-  const [isScalable, setIsScalable] = useState({
+  const [scalable, setScalable] = useState({
     isScalable: false,
     isNotScalable: false
   })
-  const [isUnderLimit, setIsUnderLimit] = useState({
+  const [limitMicro, setLimitMicro] = useState({
     isUnderLimit: false,
-    isNotUnderLimit: false
+    isAboveLimit: false
   })
-  const [isPaidByARE, setIsPaidByARE] = useState({
+  const [gotARE, setGotARE] = useState({
     isPaidByARE: false,
     isNotPaidByARE: false
   })
 
   const AssociateValue = {associate, setAssociate}
   const ProtectionValue = {needProtection, setNeedProtection}
-  const ScalableValue = {isScalable, setIsScalable}
-  const LimitValue = {isUnderLimit, setIsUnderLimit}
-  const AREValue = {isPaidByARE, setIsPaidByARE}
+  const ScalableValue = {scalable, setScalable}
+  const LimitValue = {limitMicro, setLimitMicro}
+  const AREValue = {gotARE, setGotARE}
 
   return (
     <div id="container">
