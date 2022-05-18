@@ -7,7 +7,7 @@ import LimitContext from '../../Context/LimitContext';
 import ProtectedContext from '../../Context/Protectedcontext';
 import ScalableContext from '../../Context/ScalableContext';
 
-import Alone from './Alone';
+import Associate from './Associate';
 import ARE from './ARE';
 import Limit from './Limit';
 import Protection from './Protection';
@@ -18,6 +18,10 @@ function Questionnary() {
   const handleSubmit = (e) => {
     e.preventDefault()
   }
+
+  useEffect(() => {
+    localStorage.setItem('associate', JSON.stringify(associate))
+  }, [])
 
   const {associate} = useContext(AssociateContext)
   const {needProtection} = useContext(ProtectedContext)
@@ -34,7 +38,7 @@ function Questionnary() {
   return (
     <div className='questionnary'>
       <form onSubmit={handleSubmit}>
-        <Alone changeAnswer={setAssociateAnswer} />
+        <Associate changeAnswer={setAssociateAnswer} />
         <Protection changeAnswer={setProtectionAnswer} />
         <ARE changeAnswer={setAREAnswer} />
         <Limit changeAnswer={setLimitAnswer} />
@@ -42,7 +46,7 @@ function Questionnary() {
       </form>
         <div id='send'>
         {associateAnswer&&protectionAnswer&&scalableAnswer&&limitAnswer&&AREAnswer ?
-          <Link to='/' className='undo'>Valider</Link> : 
+          <Link to='/resultat' className='undo'>Valider</Link> : 
           ''
           }
         </div>

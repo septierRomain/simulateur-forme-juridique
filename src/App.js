@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 import Home from './Component/App/Home'
+import Results from './Component/Results';
 
 // Context
 import {AssociateContext} from './Context/AssociateContext'
@@ -52,6 +53,7 @@ function App() {
             
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/resultat' element={<Results />} />
           </Routes>
 
         </ScalableContext.Provider>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import {AssociateContext} from '../../Context/AssociateContext'
 
 
-function Alone(props) {
+function Associate(props) {
 
   const {associate, setAssociate} = useContext(AssociateContext)
 
@@ -38,4 +38,4 @@ function Alone(props) {
   </div>
   )
 }
-export default Alone
+export default Associate
