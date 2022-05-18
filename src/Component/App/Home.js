@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
+import Questionnary from './Questionnary';
 
 function Home() {
 
@@ -14,6 +15,7 @@ function Home() {
         <p>C’est parti !</p>
       </div>
 
+      <Questionnary />
 
     </div>
   )
