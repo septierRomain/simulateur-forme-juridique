@@ -12,16 +12,21 @@ import AREContext from '../../Context/AREContext';
 import LimitContext from '../../Context/LimitContext';
 import ScalableContext from '../../Context/ScalableContext';
 import Breadcrumbs from './breadcrumbs';
+import Micro from './Micro';
+import EI from './EI';
+import SAS from './SAS'
+import ActivityContext from '../../Context/ActivityContext';
 
 function Results() {
   
   let history = useNavigate()
 
-  const {setAssociate} = useContext(AssociateContext)
-  const {setNeedProtection} = useContext(ProtectedContext)
-  const {setGotARE} = useContext(AREContext)
-  const {setLimitMicro} = useContext(LimitContext)
-  const {setScalable} = useContext(ScalableContext)
+  const {associate, setAssociate} = useContext(AssociateContext)
+  const {needProtection, setNeedProtection} = useContext(ProtectedContext)
+  const {gotARE, setGotARE} = useContext(AREContext)
+  const {limitMicro, setLimitMicro} = useContext(LimitContext)
+  const {scalable, setScalable} = useContext(ScalableContext)
+  const {activity, setActivity} = useContext(ActivityContext)
 
   const back = () => {
     history(-1)
@@ -49,6 +54,21 @@ function Results() {
         <Breadcrumbs />
         <h2>Votre forme juridique</h2>
         <div className='wrap-result'>
+
+        {/* Micro entreprise */}
+        {associate.isAlone&&needProtection.noNeedProtection&&scalable.isNotScalable&&limitMicro.isUnderLimit ? 
+        <Micro /> : ''}
+
+        {/* Entreprise individuelle */}
+        {associate.isAlone&&needProtection.noNeedProtection&&scalable.isNotScalable&&limitMicro.isAboveLimit ? 
+        <EI /> : ''}
+
+        {/* sas */}
+        {associate.isNotAlone&&gotARE.isPaidByARE ? <SAS /> : '' }
+        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.OtherActivity ? <SAS /> : '' }
+
+        {/* sarl */}
+        
 
         </div>
       </div>

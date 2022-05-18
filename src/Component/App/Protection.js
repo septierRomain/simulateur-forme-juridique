@@ -15,7 +15,7 @@ function Protection(props) {
 
   return (
     <div>
-    <h2>Avez vous besoin d'une protection sociale ?</h2>
+    <h2>Je veux une forme d'entreprise qui protège mon patrimoine personnel ?</h2>
     <div className="select_container">
 
         <button

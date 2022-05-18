@@ -10,6 +10,7 @@ import {ProtectedContext} from './Context/Protectedcontext'
 import {AREContext} from './Context/AREContext'
 import {LimitContext} from './Context/LimitContext'
 import {ScalableContext} from './Context/ScalableContext'
+import {ActivityContext} from './Context/ActivityContext'
 
 function App() {
   
@@ -34,12 +35,17 @@ function App() {
     isPaidByARE: false,
     isNotPaidByARE: false
   })
+  const [activity, setActivity] = useState({
+    otherActivity: false,
+    noOtherActivity: false
+  })
 
   const AssociateValue = {associate, setAssociate}
   const ProtectionValue = {needProtection, setNeedProtection}
   const ScalableValue = {scalable, setScalable}
   const LimitValue = {limitMicro, setLimitMicro}
   const AREValue = {gotARE, setGotARE}
+  const ActivityValue = {activity, setActivity}
 
   return (
     <div id="container">
@@ -50,12 +56,14 @@ function App() {
         <AREContext.Provider value={AREValue}>
         <LimitContext.Provider value={LimitValue}>
         <ScalableContext.Provider value={ScalableValue}>
-            
+        <ActivityContext.Provider value={ActivityValue}>
+
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/resultat' element={<Results />} />
           </Routes>
 
+        </ActivityContext.Provider>
         </ScalableContext.Provider>
         </LimitContext.Provider>
         </AREContext.Provider>

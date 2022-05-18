@@ -22,8 +22,8 @@ function Breadcrumbs() {
             ''
           }
           {
-            needProtection.needProtection ? <p><img src={Check} alt="fleche grise"/>Vous avez besoin d'une forte protection sociale</p> :
-            needProtection.noNeedProtection ? <p><img src={Check} alt="fleche grise"/>Vous n'avez pas besoin d'une forte protection sociale</p> :
+            needProtection.needProtection ? <p><img src={Check} alt="fleche grise"/>Vous avez besoin d'une protection de votre patrimoine</p> :
+            needProtection.noNeedProtection ? <p><img src={Check} alt="fleche grise"/>Vous n'avez pas besoin protection de votre patrimoine</p> :
             ''
           }
           {

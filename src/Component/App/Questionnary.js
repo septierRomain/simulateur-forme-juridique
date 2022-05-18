@@ -12,6 +12,8 @@ import ARE from './ARE';
 import Limit from './Limit';
 import Protection from './Protection';
 import Scalable from './Scalable';
+import ActivityContext from '../../Context/ActivityContext';
+import OtherActivity from './OtherActivity';
 
 function Questionnary() {
 
@@ -23,32 +25,36 @@ function Questionnary() {
     localStorage.setItem('associate', JSON.stringify(associate))
   }, [])
 
+  // CONTEXT
   const {associate} = useContext(AssociateContext)
   const {needProtection} = useContext(ProtectedContext)
   const {gotARE} = useContext(AREContext)
   const {limitMicro} = useContext(LimitContext)
   const {scalable} = useContext(ScalableContext)
+  const {activity} = useContext(ActivityContext)
 
-  const [associateAnswer, setAssociateAnswer] = useState(false)
-  const [protectionAnswer, setProtectionAnswer] = useState(false)
-  const [AREAnswer, setAREAnswer] = useState(false)
-  const [limitAnswer, setLimitAnswer] = useState(false)
-  const [scalableAnswer, setScalableAnswer] = useState(false)
+  // STATE
+  // const [associateAnswer, setAssociateAnswer] = useState(false)
+  // const [protectionAnswer, setProtectionAnswer] = useState(false)
+  // const [AREAnswer, setAREAnswer] = useState(false)
+  // const [limitAnswer, setLimitAnswer] = useState(false)
+  // const [scalableAnswer, setScalableAnswer] = useState(false)
 
   return (
     <div className='questionnary'>
       <form onSubmit={handleSubmit}>
-        <Associate changeAnswer={setAssociateAnswer} />
-        <Protection changeAnswer={setProtectionAnswer} />
-        <ARE changeAnswer={setAREAnswer} />
-        <Limit changeAnswer={setLimitAnswer} />
-        <Scalable changeAnswer={setScalableAnswer} />
+        <Associate />
+        {associate.isNotAlone ? <ARE /> : ''}
+        {associate.isAlone ? <Protection /> : ''}
+        {needProtection.needProtection ? <ARE /> : ''}
+        {needProtection.noNeedProtection ? <Scalable /> : ''}
+        {scalable.isScalable ? <ARE /> : ''}
+        {scalable.isNotScalable ? <Limit /> : ''}
+        {associate.isNotAlone&&gotARE.isNotPaidByARE ? <OtherActivity /> : ''}
+        
       </form>
         <div id='send'>
-        {associateAnswer&&protectionAnswer&&scalableAnswer&&limitAnswer&&AREAnswer ?
-          <Link to='/resultat' className='undo'>Valider</Link> : 
-          ''
-          }
+          <Link to='/resultat' className='undo'>Valider</Link>
         </div>
     </div>
   )

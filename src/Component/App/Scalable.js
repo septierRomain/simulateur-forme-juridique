@@ -15,7 +15,7 @@ function Scalable(props) {
 
   return (
     <div>
-    <h2>Etes vous scalable blablabla ?</h2>
+    <h2>Mon entreprise doit être évolutive ?</h2>
     <div className="select_container">
 
         <button

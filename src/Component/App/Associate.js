@@ -15,7 +15,7 @@ function Associate(props) {
 
   return (
     <div>
-    <h2>Avez vous plusieurs associés ?</h2>
+    <h2>Je m'associe seul ou à plusieurs ?</h2>
     <div className="select_container">
 
         <button

@@ -15,7 +15,7 @@ function ARE(props) {
 
   return (
     <div>
-    <h2>Avez vous les ARE ?</h2>
+    <h2>Percevez vous l'Aide de Retour à l'Emploi (ARE) ?</h2>
     <div className="select_container">
 
         <button

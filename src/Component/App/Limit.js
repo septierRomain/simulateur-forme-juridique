@@ -15,7 +15,7 @@ function Limit(props) {
 
   return (
     <div>
-    <h2>Etes vous a la limite micro blabla ?</h2>
+    <h2>Mon activité est inférieur aux seuils de la micro-entreprise</h2>
     <div className="select_container">
 
         <button
