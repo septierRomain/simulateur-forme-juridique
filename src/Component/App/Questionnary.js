@@ -21,10 +21,6 @@ function Questionnary() {
     e.preventDefault()
   }
 
-  useEffect(() => {
-    localStorage.setItem('associate', JSON.stringify(associate))
-  }, [])
-
   // CONTEXT
   const {associate} = useContext(AssociateContext)
   const {needProtection} = useContext(ProtectedContext)
@@ -46,11 +42,12 @@ function Questionnary() {
         <Associate />
         {associate.isNotAlone ? <ARE /> : ''}
         {associate.isAlone ? <Protection /> : ''}
-        {needProtection.needProtection ? <ARE /> : ''}
-        {needProtection.noNeedProtection ? <Scalable /> : ''}
-        {scalable.isScalable ? <ARE /> : ''}
-        {scalable.isNotScalable ? <Limit /> : ''}
+        {associate.isAlone&&needProtection.needProtection ? <ARE /> : ''}
         {associate.isNotAlone&&gotARE.isNotPaidByARE ? <OtherActivity /> : ''}
+        {associate.isAlone&&needProtection.noNeedProtection ? <Scalable /> : ''}
+        {associate.isAlone&&needProtection.noNeedProtection&&scalable.isScalable ? <ARE /> : ''}
+        {associate.isAlone&&needProtection.noNeedProtection&&scalable.isNotScalable ? <Limit /> : ''}
+
         
       </form>
         <div id='send'>

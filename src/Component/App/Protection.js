@@ -9,7 +9,6 @@ function Protection(props) {
   const toggleProtection = (e) => {
     const id = e.target.name
     setNeedProtection({[id]: true})
-    props.changeAnswer(true)
   }
 
 

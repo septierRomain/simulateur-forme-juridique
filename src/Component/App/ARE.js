@@ -9,7 +9,6 @@ function ARE(props) {
   const toggleARE = (e) => {
     const id = e.target.name
     setGotARE({[id]: true})
-    props.changeAnswer(true)
   }
 
 

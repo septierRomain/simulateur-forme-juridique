@@ -9,7 +9,6 @@ function OtherActivity(props) {
   const toggleActivity = (e) => {
     const id = e.target.name
     setActivity({[id]: true})
-    props.changeAnswer(true)
   }
 
 
@@ -30,7 +29,7 @@ function OtherActivity(props) {
           name='NoOtherActivity'
           onClick={(e)=>toggleActivity(e)}
           style={{marginRight: '16px'}}
-          className={activity.NoOtherActivity ? 'select focus' : 'select shadow'}
+          className={activity.noOtherActivity ? 'select focus' : 'select shadow'}
         >
           Non
         </button>

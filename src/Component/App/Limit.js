@@ -9,7 +9,6 @@ function Limit(props) {
   const toggleLimit = (e) => {
     const id = e.target.name
     setLimitMicro({[id]: true})
-    props.changeAnswer(true)
   }
 
 

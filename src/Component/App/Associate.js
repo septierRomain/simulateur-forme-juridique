@@ -9,7 +9,6 @@ function Associate(props) {
   const toggleAssociate = (e) => {
     const id = e.target.name
     setAssociate({[id]: true})
-    props.changeAnswer(true)
   }
 
 

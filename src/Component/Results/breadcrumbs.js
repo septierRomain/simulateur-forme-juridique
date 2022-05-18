@@ -6,6 +6,7 @@ import AssociateContext from '../../Context/AssociateContext';
 import LimitContext from '../../Context/LimitContext';
 import ProtectedContext from '../../Context/Protectedcontext';
 import ScalableContext from '../../Context/ScalableContext';
+import ActivityContext from '../../Context/ActivityContext'
 
 function Breadcrumbs() {
   const {associate} = useContext(AssociateContext)
@@ -13,12 +14,13 @@ function Breadcrumbs() {
   const {limitMicro} = useContext(LimitContext)
   const {scalable} = useContext(ScalableContext)
   const {needProtection} = useContext(ProtectedContext)
+  const {activity} = useContext(ActivityContext)
   
   return (
     <div className='breadcrumbs'>
           {
             associate.isAlone ? <p><img src={Check} alt="fleche grise"/>Vous etes seul associé</p> : 
-            associate.isNotALone ? <p><img src={Check} alt="fleche grise"/>Vous etes plusieurs associés</p> :
+            associate.isNotAlone ? <p><img src={Check} alt="fleche grise"/>Vous etes plusieurs associés</p> :
             ''
           }
           {
@@ -39,6 +41,11 @@ function Breadcrumbs() {
           {
             scalable.isScalable ? <p><img src={Check} alt="fleche grise"/>Vous etes scalable</p> :
             scalable.isNotScalable ? <p><img src={Check} alt="fleche grise"/>Vous n'etes pas scalable</p> :
+            ''
+          }
+          {
+            activity.OtherActivity ? <p><img src={Check} alt="fleche grise"/>Vous conservez une activité</p> :
+            activity.NoOtherActivity ? <p><img src={Check} alt="fleche grise"/>Vous n'avez pas d'autres activité</p> :
             ''
           }
 

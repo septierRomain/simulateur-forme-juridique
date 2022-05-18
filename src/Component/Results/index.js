@@ -16,6 +16,7 @@ import Micro from './Micro';
 import EI from './EI';
 import SAS from './SAS'
 import ActivityContext from '../../Context/ActivityContext';
+import SASU from './SASU';
 
 function Results() {
   
@@ -38,10 +39,6 @@ function Results() {
       setGotARE({})
     }, 50)
   }
-
-  // useEffect(() => {
-  //   setAssociate(JSON.parse(window.localStorage.getItem('associate')))
-  // }, [])
 
   return (
     <div className='wrap'>
@@ -66,6 +63,8 @@ function Results() {
         {/* sas */}
         {associate.isNotAlone&&gotARE.isPaidByARE ? <SAS /> : '' }
         {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.OtherActivity ? <SAS /> : '' }
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isPaidByARE ? <SASU /> : ''}
+        {associate.isAlone&&needProtection.noNeedProtection&&gotARE.isPaidByARE&&scalable.isScalable ? <SASU /> : ''}
 
         {/* sarl */}
         

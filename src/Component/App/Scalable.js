@@ -9,7 +9,6 @@ function Scalable(props) {
   const toggleScalable = (e) => {
     const id = e.target.name
     setScalable({[id]: true})
-    props.changeAnswer(true)
   }
 
 
