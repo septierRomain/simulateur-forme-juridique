@@ -7,6 +7,8 @@ import LimitContext from '../../Context/LimitContext';
 import ProtectedContext from '../../Context/Protectedcontext';
 import ScalableContext from '../../Context/ScalableContext';
 import ActivityContext from '../../Context/ActivityContext'
+import SalaryContext from '../../Context/SalaryContext'
+import SocialContext from '../../Context/SocialContext';
 
 function Breadcrumbs() {
   const {associate} = useContext(AssociateContext)
@@ -15,6 +17,8 @@ function Breadcrumbs() {
   const {scalable} = useContext(ScalableContext)
   const {needProtection} = useContext(ProtectedContext)
   const {activity} = useContext(ActivityContext)
+  const {salary} = useContext(SalaryContext)
+  const {social} = useContext(SocialContext)
   
   return (
     <div className='breadcrumbs'>
@@ -46,6 +50,16 @@ function Breadcrumbs() {
           {
             activity.OtherActivity ? <p><img src={Check} alt="fleche grise"/>Vous conservez une activité</p> :
             activity.NoOtherActivity ? <p><img src={Check} alt="fleche grise"/>Vous n'avez pas d'autres activité</p> :
+            ''
+          }
+          {
+            salary.monthlySalary ? <p><img src={Check} alt="fleche grise"/>Vous souhaitez vous rémunérer mensuellement</p> :
+            salary.noMonthlySalary ? <p><img src={Check} alt="fleche grise"/>Vous ne souhaitez pas vous rémunérer mensuellement</p> :
+            ''
+          }
+          {
+            social.needSocial ? <p><img src={Check} alt="fleche grise"/>Vous préférez avoir des cotisations élevées (85% environ) mais un régime protecteur</p> :
+            social.noNeedSocial ? <p><img src={Check} alt="fleche grise"/>Vous préférez avoir des cotisations plus faibles (environ 40%) mais une protection sociale plus précaire</p> :
             ''
           }
 

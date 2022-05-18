@@ -29,7 +29,7 @@ function OtherActivity(props) {
           name='NoOtherActivity'
           onClick={(e)=>toggleActivity(e)}
           style={{marginRight: '16px'}}
-          className={activity.noOtherActivity ? 'select focus' : 'select shadow'}
+          className={activity.NoOtherActivity ? 'select focus' : 'select shadow'}
         >
           Non
         </button>

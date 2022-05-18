@@ -14,6 +14,10 @@ import Protection from './Protection';
 import Scalable from './Scalable';
 import ActivityContext from '../../Context/ActivityContext';
 import OtherActivity from './OtherActivity';
+import Salary from './Salary'
+import Social from './Social'
+import SalaryContext from '../../Context/SalaryContext';
+import SocialContext from '../../Context/SocialContext';
 
 function Questionnary() {
 
@@ -28,6 +32,8 @@ function Questionnary() {
   const {limitMicro} = useContext(LimitContext)
   const {scalable} = useContext(ScalableContext)
   const {activity} = useContext(ActivityContext)
+  const {salary} = useContext(SalaryContext)
+  const {social} = useContext(SocialContext)
 
   // STATE
   // const [associateAnswer, setAssociateAnswer] = useState(false)
@@ -40,14 +46,21 @@ function Questionnary() {
     <div className='questionnary'>
       <form onSubmit={handleSubmit}>
         <Associate />
-        {associate.isNotAlone ? <ARE /> : ''}
+
+        {/* SEUL */}
         {associate.isAlone ? <Protection /> : ''}
         {associate.isAlone&&needProtection.needProtection ? <ARE /> : ''}
-        {associate.isNotAlone&&gotARE.isNotPaidByARE ? <OtherActivity /> : ''}
         {associate.isAlone&&needProtection.noNeedProtection ? <Scalable /> : ''}
         {associate.isAlone&&needProtection.noNeedProtection&&scalable.isScalable ? <ARE /> : ''}
         {associate.isAlone&&needProtection.noNeedProtection&&scalable.isNotScalable ? <Limit /> : ''}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE ? <OtherActivity /> : ''}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity ? <Salary /> : ''}
 
+        {/* A PLUSIEURS */}
+        {associate.isNotAlone ? <ARE /> : ''}
+        {associate.isNotAlone&&gotARE.isNotPaidByARE ? <OtherActivity /> : ''}
+        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity ? <Salary /> : ''}
+        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary ? <Social /> : ''}
         
       </form>
         <div id='send'>

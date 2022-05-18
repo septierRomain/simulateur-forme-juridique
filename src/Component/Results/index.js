@@ -17,6 +17,10 @@ import EI from './EI';
 import SAS from './SAS'
 import ActivityContext from '../../Context/ActivityContext';
 import SASU from './SASU';
+import SARL from './SARL';
+import EURL from './EURL'
+import SalaryContext from '../../Context/SalaryContext';
+import SocialContext from '../../Context/SocialContext';
 
 function Results() {
   
@@ -28,6 +32,8 @@ function Results() {
   const {limitMicro, setLimitMicro} = useContext(LimitContext)
   const {scalable, setScalable} = useContext(ScalableContext)
   const {activity, setActivity} = useContext(ActivityContext)
+  const {salary, setSalary} =useContext(SalaryContext)
+  const {social, setSocial} = useContext(SocialContext)
 
   const back = () => {
     history(-1)
@@ -37,6 +43,9 @@ function Results() {
       setScalable({})
       setLimitMicro({})
       setGotARE({})
+      setActivity({})
+      setSalary({})
+      setSocial({})
     }, 50)
   }
 
@@ -65,9 +74,14 @@ function Results() {
         {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.OtherActivity ? <SAS /> : '' }
         {associate.isAlone&&needProtection.needProtection&&gotARE.isPaidByARE ? <SASU /> : ''}
         {associate.isAlone&&needProtection.noNeedProtection&&gotARE.isPaidByARE&&scalable.isScalable ? <SASU /> : ''}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.OtherActivity ? <SASU /> : ''}
 
         {/* sarl */}
-        
+        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.monthlySalary ? <SARL /> : ''}
+        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.needSocial? <SAS /> : ''}
+
+        {/* eurl */}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.monthlySalary ? <EURL /> : ''}
 
         </div>
       </div>
