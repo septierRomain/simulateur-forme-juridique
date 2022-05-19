@@ -21,7 +21,7 @@ function Social(props) {
         name='needSocial'
         style={{marginRight: '16px', width: '300px'}}
         onClick={(e)=>toggleSocial(e)}
-        className={social.needSocial ? 'select social focus' : 'select social shadow'}
+        className={social.needSocial ? 'select focus' : 'select shadow'}
         >
           avoir des cotisations élevées (85% environ) mais un régime protecteur
         </button>
@@ -29,7 +29,7 @@ function Social(props) {
           name='noNeedSocial'
           style={{marginRight: '16px', width: '300px'}}
           onClick={(e)=>toggleSocial(e)}
-          className={social.noNeedSocial ? 'select social focus' : 'select social shadow'}
+          className={social.noNeedSocial ? 'select focus' : 'select shadow'}
         >
           avoir des cotisations plus faibles (environ 40%) mais une protection sociale plus précaire
         </button>

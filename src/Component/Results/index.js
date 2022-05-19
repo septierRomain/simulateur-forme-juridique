@@ -1,25 +1,24 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
+import GreyArrow from '../../Assets/grey arrow.svg';
 
 import Banner from '../App/Banner';
+import Breadcrumbs from './breadcrumbs';
+import Micro from './Micro';
+import EI from './EI';
+import SAS from './SAS'
+import SASU from './SASU';
+import SARL from './SARL';
+import EURL from './EURL';
+import Error from './Error'
 
-import GreyArrow from '../../Assets/grey arrow.svg';
 import AssociateContext from '../../Context/AssociateContext';
 import ProtectedContext from '../../Context/Protectedcontext';
 import AREContext from '../../Context/AREContext';
 import LimitContext from '../../Context/LimitContext';
 import ScalableContext from '../../Context/ScalableContext';
-import Breadcrumbs from './breadcrumbs';
-import Micro from './Micro';
-import EI from './EI';
-import SAS from './SAS'
 import ActivityContext from '../../Context/ActivityContext';
-import SASU from './SASU';
-import SARL from './SARL';
-import EURL from './EURL';
-import Error from './Error'
 import SalaryContext from '../../Context/SalaryContext';
 import SocialContext from '../../Context/SocialContext';
 
@@ -78,6 +77,9 @@ function Results() {
         {associate.isAlone&&needProtection.needProtection&&gotARE.isPaidByARE ? <SASU /> : ''}
         {associate.isAlone&&needProtection.noNeedProtection&&gotARE.isPaidByARE&&scalable.isScalable ? <SASU /> : ''}
         {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.OtherActivity ? <SASU /> : ''}
+        {associate.isAlone&&needProtection.noNeedProtection&&scalable.isScalable&&gotARE.isNotPaidByARE&&activity.OtherActivity ? <SASU /> : ''}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.needSocial ? <SASU /> : ''}
+        {associate.isAlone&&needProtection.noNeedProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.needSocial ? <SASU /> : ''}
 
         {/* sarl */}
         {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.monthlySalary ? <SARL /> : ''}
@@ -87,7 +89,8 @@ function Results() {
         {/* eurl */}
         {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.monthlySalary ? <EURL /> : ''}
         {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.noNeedSocial ? <EURL /> : ''}
-        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.needSocial ? <SASU /> : ''}
+        {associate.isAlone&&needProtection.noNeedProtection&&scalable.isScalable&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.monthlySalary ? <EURL /> : ''}
+
 
         </div>
       </div>
