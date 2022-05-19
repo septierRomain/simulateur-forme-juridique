@@ -29,8 +29,7 @@ h4, ul {
   padding-bottom: 1em!important;
 }
 h2 {
-  display: flex;
-  align-items: center;
+  text-align: left;
 }
 ul {
   font-size: 16px;
@@ -206,6 +205,13 @@ img {
 }
 .questionnary {
   padding: 1em 0;
+}
+#subtitle {
+  font-weight: 400;
+  color: gray;
+  display: flex;
+  margin-bottom: 1em;
+  margin-top: -10px;
 }
 .shadow, #endingDate {
   /* box-shadow: 0 0 6px rgb(0,0,0, 0.5); */

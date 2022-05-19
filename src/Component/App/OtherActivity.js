@@ -14,7 +14,8 @@ function OtherActivity(props) {
 
   return (
     <div>
-    <h2>Un des dirigeants conservent une activité en parallèle (salarié, micro-entreprise, entreprise individuelle)</h2>
+    <h2>Un des dirigeants conservent une activité en parallèle</h2>
+    <span id="subtitle">(salarié, micro-entreprise, entreprise individuelle)</span>
     <div className="select_container">
 
         <button

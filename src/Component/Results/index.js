@@ -18,7 +18,8 @@ import SAS from './SAS'
 import ActivityContext from '../../Context/ActivityContext';
 import SASU from './SASU';
 import SARL from './SARL';
-import EURL from './EURL'
+import EURL from './EURL';
+import Error from './Error'
 import SalaryContext from '../../Context/SalaryContext';
 import SocialContext from '../../Context/SocialContext';
 
@@ -60,6 +61,8 @@ function Results() {
         <Breadcrumbs />
         <h2>Votre forme juridique</h2>
         <div className='wrap-result'>
+
+        {/* ERROR */}
 
         {/* Micro entreprise */}
         {associate.isAlone&&needProtection.noNeedProtection&&scalable.isNotScalable&&limitMicro.isUnderLimit ? 
