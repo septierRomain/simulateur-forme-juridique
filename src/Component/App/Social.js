@@ -19,17 +19,17 @@ function Social(props) {
 
         <button
         name='needSocial'
-        style={{marginRight: '16px'}}
+        style={{marginRight: '16px', width: '300px'}}
         onClick={(e)=>toggleSocial(e)}
-        className={social.needSocial ? 'select focus' : 'select shadow'}
+        className={social.needSocial ? 'select social focus' : 'select social shadow'}
         >
           avoir des cotisations élevées (85% environ) mais un régime protecteur
         </button>
         <button
           name='noNeedSocial'
-          style={{marginRight: '16px'}}
+          style={{marginRight: '16px', width: '300px'}}
           onClick={(e)=>toggleSocial(e)}
-          className={social.noNeedSocial ? 'select focus' : 'select shadow'}
+          className={social.noNeedSocial ? 'select social focus' : 'select social shadow'}
         >
           avoir des cotisations plus faibles (environ 40%) mais une protection sociale plus précaire
         </button>

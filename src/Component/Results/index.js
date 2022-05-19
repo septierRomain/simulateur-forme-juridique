@@ -81,10 +81,13 @@ function Results() {
 
         {/* sarl */}
         {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.monthlySalary ? <SARL /> : ''}
-        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.needSocial? <SAS /> : ''}
+        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.needSocial ? <SAS /> : ''}
+        {associate.isNotAlone&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.noNeedSocial ? <SARL /> : ''}
 
         {/* eurl */}
         {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.monthlySalary ? <EURL /> : ''}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.noNeedSocial ? <EURL /> : ''}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary&&social.needSocial ? <SASU /> : ''}
 
         </div>
       </div>

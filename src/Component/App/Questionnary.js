@@ -55,6 +55,7 @@ function Questionnary() {
         {associate.isAlone&&needProtection.noNeedProtection&&scalable.isNotScalable ? <Limit /> : ''}
         {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE ? <OtherActivity /> : ''}
         {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity ? <Salary /> : ''}
+        {associate.isAlone&&needProtection.needProtection&&gotARE.isNotPaidByARE&&activity.NoOtherActivity&&salary.noMonthlySalary ? <Social /> : ''}
 
         {/* A PLUSIEURS */}
         {associate.isNotAlone ? <ARE /> : ''}
